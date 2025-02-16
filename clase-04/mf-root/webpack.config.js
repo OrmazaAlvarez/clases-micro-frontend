@@ -6,7 +6,8 @@ module.exports = {
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: '/',
+        libraryTarget: 'system',
     },
     module: {
         rules: [
@@ -24,14 +25,23 @@ module.exports = {
             },
         ]
     },
+    resolve: {
+        "alias": {
+            "single-spa": require.resolve("single-spa/lib/es5/esm/single-spa.min.js")
+        }
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: './public/index.html',
             filename: './index.html'
         })
     ],
+    externals: ['single-spa'],
     devServer: {
         historyApiFallback: true,
-        port: 9080
+        port: 9080,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
     }
 };

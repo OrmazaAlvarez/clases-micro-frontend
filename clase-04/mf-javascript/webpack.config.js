@@ -6,7 +6,8 @@ module.exports = {
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: '/',
+        libraryTarget: 'system',
     },
     module: {
         rules: [
@@ -16,22 +17,16 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
-            },
-            {
-                test: /\.html$/,
-                use: ["raw-loader"],
-                exclude: /node_modules/,
-            },
+            }
         ]
     },
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: './public/index.html',
-            filename: './index.html'
-        })
-    ],
+    plugins: [],
+    externals: ['single-spa'],
     devServer: {
         historyApiFallback: true,
-        port: 9080
+        port: 9081,
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+        },
     }
 };

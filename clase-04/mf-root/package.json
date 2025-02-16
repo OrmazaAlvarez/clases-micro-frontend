@@ -1,5 +1,5 @@
 {
-  "name": "mf-javascript",
+  "name": "app-mf-root",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
@@ -10,10 +10,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "html-webpack-plugin": "^5.6.0",
+    "@types/systemjs": "^6.15.1",
+    "html-webpack-plugin": "^5.6.3",
     "raw-loader": "^4.0.2",
     "single-spa": "^6.0.3",
-    "single-spa-layout": "^3.0.0"
+    "single-spa-layout": "^3.0.0",
+    "systemjs": "^6.15.1"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
